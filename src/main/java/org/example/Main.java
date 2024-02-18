@@ -1,5 +1,6 @@
 package org.example;
 
+import config.ConfigClass;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -9,6 +10,8 @@ public class Main {
         Parrot blueParrot = new Parrot();
         System.out.println(blueParrot);
 
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
+        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(ConfigClass.class);
+        Parrot parrotBean = context.getBean(Parrot.class);
+        System.out.println(parrotBean.getParrotName());
     }
 }
